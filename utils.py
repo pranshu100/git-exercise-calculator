@@ -6,3 +6,6 @@ def add_function(a,b):
 
 def mult_function(a,b):
     return a*b
+
+def sub_function(a,b):
+    return a-b
