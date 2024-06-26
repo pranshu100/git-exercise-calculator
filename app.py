@@ -9,7 +9,7 @@ num1 = st.number_input("Enter first number", value=0.0)
 num2 = st.number_input("Enter second number", value=0.0)
 
 # User can choose an operation
-operation = st.radio("Choose an operation", ("Addition", "Subtraction", "Multiplication", "Division"))
+operation = st.radio("Choose an operation", ("Addition", "Subtraction", "Multiplication", "Division","Log"))
 
 # Perform the selected operation
 if st.button("Calculate"):
@@ -21,7 +21,7 @@ if st.button("Calculate"):
         result = mult_function(num1, num2)
     elif operation == "Division":
         result = div_function(num1, num2)
-    elif operation == "log":
+    elif operation == "Log":
         result = log_function(num1,num2)
     
     st.write(f"The result of {operation} is: {result}")
