@@ -1,7 +1,7 @@
 import streamlit as st 
 import pandas as pd
 import numpy as np
-from utils import add_function, sub_function, mult_function, div_function 
+from utils import add_function, sub_function, mult_function, div_function, log_function
 st.title("Simple Arithmetic Operations")
 
 
@@ -21,5 +21,7 @@ if st.button("Calculate"):
         result = mult_function(num1, num2)
     elif operation == "Division":
         result = div_function(num1, num2)
+    elif operation == "log":
+        result = log_function(num1,num2)
     
     st.write(f"The result of {operation} is: {result}")
