@@ -14,6 +14,9 @@ def div_function(a,b):
         raise ZeroDivisionError("Division by zero is undefined.")
     return a/b
 
+def power_func(a,b):
+    return pow(a,b)
+
 def log_function(base, num):
     # Check if base is valid for logarithm calculation
     if base <= 0:
