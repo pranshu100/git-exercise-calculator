@@ -28,3 +28,5 @@ def log_function(base, num):
     result = math.log(num, base)
     return result
 
+def multi_sum_div(a,b):
+    return a*b + a/b
