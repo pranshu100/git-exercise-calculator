@@ -11,8 +11,11 @@ def add_function(a,b):
     return response.json().get('result')
 
 def mult_function(a,b):
-    # add 
-    return a
+    url = f'http://{FASTAPI_HOST}:{FASTAPI_PORT}/multiplication'
+    response = requests.post(url, json={'num1': a, 'num2': b})
+    return response.json().get('result')
+
+    
 
 def sub_function(a,b):
     return a-b
