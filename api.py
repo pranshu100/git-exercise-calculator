@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,HTTPException
 from pydantic import BaseModel
 import os
 app = FastAPI()
@@ -29,6 +29,13 @@ async def sub_function(numbers: Numbers):
     result = numbers.num1 - numbers.num2
     return {"result": result}
 
+@app.post("/div")
+async def div_function(numbers: Numbers):
+    if numbers.num2==0:
+        raise HTTPException(400,"Choose a divisor other than 0")
+
+    result = numbers.num1 / numbers.num2
+    return {"result": result}
 
 
 
