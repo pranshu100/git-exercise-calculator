@@ -1,4 +1,10 @@
 # Enter your code for the calculator app
+<<<<<<< HEAD
+
+def subtract(a,b):
+    return a-b
+
+=======
 import math
 
 import requests
@@ -41,3 +47,4 @@ def log_function(base, num):
 
 def multi_sum_div(a,b):
     return a*b + a/b
+>>>>>>> 9fd0ce19b3cb0a40d6bc92595b10b7df8fbdf083
