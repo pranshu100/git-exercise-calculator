@@ -24,6 +24,12 @@ async def add_function(numbers: Numbers):
     result = numbers.num1 + numbers.num2
     return {"result": result}
 
+@app.post("/multiplication")
+async def mult_function(numbers: Numbers):
+    result = numbers.num1 * numbers.num2
+    return {"result": result} 
+  
+  
 @app.post("/sub")
 async def sub_function(numbers: Numbers):
     result = numbers.num1 - numbers.num2
