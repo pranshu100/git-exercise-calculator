@@ -18,12 +18,15 @@ def mult_function(a,b):
     
 
 def sub_function(a,b):
-    return a-b
+    url = f'http://{FASTAPI_HOST}:{FASTAPI_PORT}/sub'
+    response = requests.post(url, json={'num1': a, 'num2': b})
+    return response.json().get('result')
+    
 
 def div_function(a,b):
-    if b==0:
-        raise ZeroDivisionError("Division by zero is undefined.")
-    return a/b
+    url = f'http://{FASTAPI_HOST}:{FASTAPI_PORT}/div'
+    response = requests.post(url, json={'num1': a, 'num2': b})
+    return response.json().get('result')
 
 def power_func(a,b):
     return pow(a,b)
