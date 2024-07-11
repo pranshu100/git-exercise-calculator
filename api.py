@@ -43,6 +43,14 @@ async def div_function(numbers: Numbers):
     result = numbers.num1 / numbers.num2
     return {"result": result}
 
+@app.post("/power")
+async def power_function(numbers: Numbers):
+    if numbers.num1==0 and numbers.num2==0:
+        raise HTTPException(400,"Both numbers cant be 0, enter another number")
+
+    result = pow(numbers.num1 , numbers.num2)
+    return {"result": result}
+ 
 
 
 if __name__ == "__main__":
