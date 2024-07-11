@@ -28,8 +28,11 @@ def div_function(a,b):
     response = requests.post(url, json={'num1': a, 'num2': b})
     return response.json().get('result')
 
-def power_func(a,b):
-    return pow(a,b)
+def power_function(a,b):
+    url = f'http://{FASTAPI_HOST}:{FASTAPI_PORT}/power'
+    response = requests.post(url, json={'num1': a, 'num2': b})
+    return response.json().get('result')
+    
 
 def log_function(base, num):
     # Check if base is valid for logarithm calculation

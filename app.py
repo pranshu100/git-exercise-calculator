@@ -8,7 +8,7 @@ from utils import (
     div_function,
     log_function,
     multi_sum_div,
-    power_func,
+    power_function,
 )
 
 st.title("Simple Arithmetic Operations")
@@ -46,6 +46,6 @@ if st.button("Calculate"):
     elif operation == "Multi_sum_div":
         result = multi_sum_div(num1, num2)
     elif operation == "Power":
-        result = power_func(num1, num2)
+        result = power_function(num1, num2)
 
     st.write(f"The result of {operation} is: {result}")
