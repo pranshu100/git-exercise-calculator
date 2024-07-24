@@ -1,15 +1,11 @@
 from fastapi import FastAPI,HTTPException
 from pydantic import BaseModel
 import os
+from logger import logger
+
 app = FastAPI()
-# from dotenv import load_dotenv
+logger.info("Starting API...")
 
-# # Load environment variables from .env file
-# load_dotenv()
-
-# # Access variables
-# FASTAPI_HOST = os.getenv('FASTAPI_HOST')
-# FASTAPI_PORT = os.getenv('FASTAPI_PORT')
 
 FASTAPI_HOST='127.0.0.1'
 FASTAPI_PORT='8000'
@@ -19,9 +15,12 @@ class Numbers(BaseModel):
     num1: float
     num2: float
 
+
+
 @app.post("/sum")
 async def add_function(numbers: Numbers):
     result = numbers.num1 + numbers.num2
+    logger.info(f"Added numbers {numbers.num1} and {numbers.num2}")
     return {"result": result}
 
 @app.post("/multiplication")
