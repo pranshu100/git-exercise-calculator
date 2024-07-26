@@ -26,6 +26,7 @@ async def add_function(numbers: Numbers):
 @app.post("/multiplication")
 async def mult_function(numbers: Numbers):
     result = numbers.num1 * numbers.num2
+    logger.info(f"Multiplied numbers {numbers.num1} and {numbers.num2}")
     return {"result": result} 
   
   
