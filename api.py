@@ -33,6 +33,7 @@ async def mult_function(numbers: Numbers):
 @app.post("/sub")
 async def sub_function(numbers: Numbers):
     result = numbers.num1 - numbers.num2
+    logger.info(f"Subtracted two numbers numbers {numbers.num1} and {numbers.num2}")
     return {"result": result}
 
 @app.post("/div")
