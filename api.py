@@ -63,6 +63,7 @@ async def power_function(numbers: Numbers):
         raise HTTPException(400,"Error: Number must be positive.") 
     result = math.log(numbers.num1 , numbers.num2)
     logger.info(f"log of {numbers.num2} with base {numbers.num1}")
+    logger.info("base is >0 and not equal to 1 also number is positive")
     return {"result": result}
 
 
