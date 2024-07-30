@@ -2,7 +2,7 @@ from fastapi import FastAPI,HTTPException
 from pydantic import BaseModel
 import os
 from logger import logger
-
+import math
 app = FastAPI()
 logger.info("Starting API...")
 
@@ -51,7 +51,24 @@ async def power_function(numbers: Numbers):
 
     result = pow(numbers.num1 , numbers.num2)
     return {"result": result}
- 
+
+@app.post("/log")
+async def power_function(numbers: Numbers):
+    if numbers.num1 <= 0:
+        logger.error('base is not positive')
+        raise HTTPException(400,"Error: Base must be positive.")
+         
+    if numbers.num1 == 1:
+        logger.error('base is 1')
+        raise HTTPException(400,"Error: Base cannot be 1.") 
+    # Check if num is valid for logarithm calculation
+    if numbers.num2 <= 0:
+        logger.error('Number is negative')
+        raise HTTPException(400,"Error: Number must be positive.") 
+    result = math.log(numbers.num1 , numbers.num2)
+    logger.info(f"log of {numbers.num2} with base {numbers.num1}")
+    logger.info("base is >0 and not equal to 1 also number is positive")
+    return {"result": result}
 
 
 if __name__ == "__main__":
