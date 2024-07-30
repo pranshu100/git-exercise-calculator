@@ -34,19 +34,11 @@ def power_function(a,b):
     return response.json().get('result')
     
 
-def log_function(base, num):
-    # Check if base is valid for logarithm calculation
-    if base <= 0:
-        return "Error: Base must be positive."
-    if base == 1:
-        return "Error: Base cannot be 1."
-    # Check if num is valid for logarithm calculation
-    if num <= 0:
-        return "Error: Number must be positive."
-    
-    # Use math.log to calculate the logarithm with the specified base
-    result = math.log(num, base)
-    return result
+def log_function(a, b):
+    url = f'http://{FASTAPI_HOST}:{FASTAPI_PORT}/log'
+    response = requests.post(url, json={'num1': a, 'num2': b})
+    return response.json().get('result')
+
 
 def multi_sum_div(a,b):
     return a*b + a/b
